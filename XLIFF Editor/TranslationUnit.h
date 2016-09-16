@@ -12,9 +12,8 @@
 
 - (instancetype)initWithXMLNode:(NSXMLNode *)node;
 
-@property (nonatomic, readonly) NSXMLNode *node;
-@property (nonatomic, readonly) NSXMLNode *sourceNode;
-@property (nonatomic, readonly) NSXMLNode *targetNode;
-@property (nonatomic, readonly) NSXMLNode *noteNode;
+@property (nonatomic, readonly) NSString *source;
+@property (nonatomic, copy)     NSString *target;
+@property (nonatomic, readonly) NSString *note;
 
 @end

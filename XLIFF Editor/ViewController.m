@@ -39,13 +39,13 @@
 - (nullable id)tableView:(NSTableView *)tableView objectValueForTableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row {
     TranslationUnit *translationUnit = self.document.translationUnits[row];
     if ([tableColumn.identifier isEqualToString:@"source"]) {
-        return translationUnit.sourceNode.stringValue;
+        return translationUnit.source;
     }
     if ([tableColumn.identifier isEqualToString:@"target"]) {
-        return translationUnit.targetNode.stringValue;
+        return translationUnit.target;
     }
     if ([tableColumn.identifier isEqualToString:@"note"]) {
-        return translationUnit.noteNode.stringValue;
+        return translationUnit.note;
     }
     return nil;
 }
@@ -53,8 +53,7 @@
 - (void)tableView:(NSTableView *)tableView setObjectValue:(nullable id)object forTableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row {
     TranslationUnit *translationUnit = self.document.translationUnits[row];
     if ([tableColumn.identifier isEqualToString:@"target"]) {
-        NSParameterAssert([object isKindOfClass:[NSString class]]);
-        translationUnit.targetNode.stringValue = object;
+        translationUnit.target = object;
         [self.document updateChangeCount:NSChangeDone];
     }
 }
