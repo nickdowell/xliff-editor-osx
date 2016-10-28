@@ -47,7 +47,7 @@
         return NO;
     }
     NSXMLElement *root = [xml rootElement];
-    if (![root.name isEqualToString:@"xliff"]) {
+    if (![root.name isEqualToString:@"xliff"] || ![root.name isEqualToString:@"xlf"]) {
         return NO;
     }
     self.xml = xml;
